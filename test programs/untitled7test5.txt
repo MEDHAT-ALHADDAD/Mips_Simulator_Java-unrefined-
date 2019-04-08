@@ -1,0 +1,13 @@
+﻿addi ,$s0,$0,5 
+addi, $s1, $0 , 15
+sub, $s3, $s1, $s0
+addi ,$t0, $0, 10
+bne ,$s3, $t0, NotEqual
+addi, $a0, $0, 8
+addi,$t9,$a0,6
+slt, $t3, $a0, $t9
+j ,finish
+NotEqual:
+andi, $a0, $t0, 18
+ori ,$a0, $a0, 80
+finish:

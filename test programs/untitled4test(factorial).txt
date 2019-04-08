@@ -1,0 +1,26 @@
+﻿j ,main
+fact:
+addi,$t9,$0,2
+slt ,$t1 , $a0,$t9
+bne, $t1, $0 , exit
+addi, $sp, $sp , 4
+sw ,$ra , $sp,0
+addi ,$sp, $sp, 4
+sw ,$a0 , $sp,0
+addi ,$a0 , $a0 , -1
+jal ,fact
+lw ,$a0,$sp,0
+addi ,$sp, $sp, -4
+mul ,$v0, $v0, $a0
+lw ,$ra ,$sp,0
+addi, $sp, $sp ,-4
+jr ,$ra
+exit:
+ addi ,$v0 ,$0, 1
+jr ,$ra
+
+
+main :
+addi, $a0,$0,5
+jal ,fact
+addi ,$a0,$v0,0
